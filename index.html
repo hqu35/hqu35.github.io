@@ -14,8 +14,11 @@
       
       <!-- Profile Image -->
       <div class="col-md-5 text-center mb-4">
-        <img src="ryan-profile.jpg" alt="Ryan's Profile Picture"
-             style="max-width: 100%; height: auto; border-radius: 10px;">
+        <img id="profilePic"
+     src="ryan-formal.jpg"
+     alt="Ryan's Profile Picture"
+     style="max-width: 100%; height: auto; border-radius: 10px; cursor: pointer;"
+     onclick="toggleImage()" />
       </div>
 
       <!-- Text Section -->
@@ -31,7 +34,14 @@
     </div>
   </div>
 </section>
-
+  <script>
+  function toggleImage() {
+    const img = document.getElementById('profilePic');
+    const src1 = 'ryan-formal.jpg';
+    const src2 = 'ryan-artistic.jpg';
+    img.src = (img.src.includes(src1)) ? src2 : src1;
+  }
+</script>
   <!-- About Me Section -->
   <section id="about" class="py-5 bg-white">
     <div class="container text-center">
