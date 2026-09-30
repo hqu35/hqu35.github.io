@@ -1,355 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-earth="1610">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ryan's Personal Website</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="description" content="Haoyang (Ryan) Qu — Math & CS student at UW–Madison interested in machine learning, computer vision, and computer graphics.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23111'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Impact,sans-serif' font-size='40' fill='%23e5202e'%3ERQ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Restore the chosen dimension before first paint so the palette doesn't flash.
+    document.documentElement.classList.add('js');
+    try {
+      var earth = localStorage.getItem('earth');
+      if (earth === '65' || earth === '1610') document.documentElement.dataset.earth = earth;
+    } catch (e) {}
+  </script>
 </head>
-<body class="bg-light py-5">
+<body>
+
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero" aria-label="Back to top">RQ</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#courses">Courses</a>
+        <a href="#education">Education</a>
+        <a href="https://github.com/hqu35">GitHub</a>
+      </nav>
+      <button class="earth-toggle" type="button" id="earthToggle" aria-live="polite">
+        <span class="earth-toggle-label">Earth</span>
+        <span class="earth-toggle-value" data-when="1610">1610</span>
+        <span class="earth-toggle-value" data-when="65">65</span>
+        <span class="visually-hidden">— switch dimension (color theme)</span>
+      </button>
+    </div>
+  </header>
 
   <!-- Hero Section -->
-<section id="hero" class="py-5 bg-dark text-light">
-  <div class="container">
-    <div class="row align-items-center justify-content-center">
-      
+  <section id="hero" class="hero">
+    <div class="hero-fx" aria-hidden="true">
+      <svg class="hero-web" viewBox="0 0 400 460" preserveAspectRatio="xMaxYMin meet">
+        <path d="M400 0L400 460M400 0L281 444M400 0L170 398M400 0L75 325M400 0L2 230M400 0L-44 119M400 0L-60 0M400 60Q393 52 384 58Q380 48 370 52Q368 42 358 42Q358 32 348 30Q352 20 342 16Q348 7 340 0M400 120Q386 104 369 116Q360 97 340 104Q336 83 315 85Q317 64 296 60Q303 40 284 31Q296 14 280 0M400 185Q379 160 352 179Q338 149 308 160Q302 128 269 131Q272 98 240 92Q251 62 221 48Q240 21 215 0M400 255Q371 221 334 246Q315 206 273 221Q265 177 220 180Q223 135 179 127Q194 85 154 66Q179 29 145 0M400 330Q362 285 315 319Q290 266 235 286Q225 228 167 233Q172 175 114 165Q134 110 81 85Q115 38 70 0M400 420Q352 363 291 406Q260 339 190 364Q177 291 103 297Q109 223 36 210Q61 140 -6 109Q37 48 -20 0"/>
+      </svg>
+      <span class="slab slab-1"></span>
+      <span class="slab slab-2"></span>
+      <span class="slab slab-3"></span>
+    </div>
+
+    <div class="container hero-grid">
+
       <!-- Profile Image -->
-      <div class="col-md-5 text-center mb-4">
-        <img id="profilePic"
-             src="ryan-formal.jpg"
-             alt="Ryan's Profile Picture"
-             style="max-width: 100%; height: auto; border-radius: 10px; cursor: pointer;"
-             onclick="toggleImage()" />
+      <div class="hero-photo">
+        <button type="button" class="photo-panel" id="photoToggle" aria-label="Switch profile picture">
+          <img id="profilePic" src="ryan-formal.jpg" alt="Ryan's Profile Picture" width="800" height="1065">
+        </button>
+        <p class="bubble" aria-hidden="true">Tap me to switch variants!</p>
+        <span class="dimension-tag" aria-hidden="true">
+          <span data-when="1610">Earth-1610</span><span data-when="65">Earth-65</span>
+        </span>
       </div>
 
       <!-- Text Section -->
-      <div class="col-md-6 text-center text-md-start">
-        <h1><span style="color: white;">Haoyang (Ryan) </span> <span style="color: gold;">Qu</span></h1>
-        <h3 class="mb-3">Math and CS student at <span style="color: #007BFF;">UW–Madison</span></h3>
-        <p style="font-size: 1.2rem;">
-          Hi, I’m Ryan, a Math & CS student at UW–Madison with a strong mathematical background. I’m broadly interested in machine learning, computer vision, and computer graphics, especially problems that combine mathematical and computational modeling with creative visual applications.
-          I enjoy exploring how learning-based and graphics techniques can be used to model, understand, and create visual worlds.
-        </p>
-        <a href="#education" class="btn btn-outline-light mt-3">See My Background</a>
-        <a href="https://github.com/hqu35" class="btn btn-outline-light mt-3 ms-2">GitHub</a>
+      <div class="hero-text">
+        <p class="caption-box">Alright, let's do this one more time&hellip;</p>
+        <h1 class="hero-name">
+          <span class="line">Haoyang (Ryan)</span>
+          <span class="line surname">Qu</span>
+        </h1>
+        <p class="hero-role">Math and CS student at <strong>UW–Madison</strong></p>
+        <div class="hero-intro">
+          <p>
+            Hi, I’m Ryan, a Math & CS student at UW–Madison with a strong mathematical background. I’m broadly interested in machine learning, computer vision, and computer graphics, especially problems that combine mathematical and computational modeling with creative visual applications.
+            I enjoy exploring how learning-based and graphics techniques can be used to model, understand, and create visual worlds.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="#education" class="btn btn-primary">See My Background</a>
+          <a href="https://github.com/hqu35" class="btn btn-ghost">GitHub</a>
+        </div>
       </div>
 
     </div>
-  </div>
-</section>
-  <script>
-  function toggleImage() {
-    const img = document.getElementById('profilePic');
-    const src1 = 'ryan-formal.jpg';
-    const src2 = 'ryan-artistic.jpg';
-    img.src = (img.src.includes(src1)) ? src2 : src1;
-  }
-</script>
-  <!-- About Me Section -->
-  <section id="about" class="py-5 bg-white">
-    <div class="container text-center">
-      <h2>About</h2>
-      <p>I’m especially interested in understanding not only how learning-based systems work in practice, but also the mathematical ideas behind them and how they can interact with visual computing.
-        At this stage, I’m still exploring where these interests may lead, and I’m excited to keep learning across machine learning, computer vision, graphics, and related areas.</p>
-    </div>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="py-5 bg-white" aria-labelledby="experience-heading">
-    <div class="container">
-      <h2 id="experience-heading" class="text-center mb-5">Experience</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <article class="card border-0 shadow-sm">
-            <div class="card-body p-4 p-md-5">
-              <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-3 mb-4">
-                <img src="Aizip.avif" alt="Aizip logo" class="img-fluid" style="width: 120px; height: auto;" loading="lazy">
-                <div>
-                  <h3 class="mb-2">Aizip</h3>
-                  <p class="text-muted mb-0">Internship</p>
-                  <p class="text-muted mb-0"><time datetime="2026-06">Jun</time>–<time datetime="2026-08">Aug 2026</time></p>
-                </div>
-              </div>
-              <ul class="mb-0 ps-3">
-                <li class="mb-3">Built a hybrid synthetic-data framework for water-meter perception, combining procedural CG/PBR rendering with diffusion-based image augmentation to generate diverse training data.</li>
-                <li class="mb-3">Developed controllable 3D generation workflows for meter geometry, materials, lighting, camera pose, and digit configurations, with automatically generated ground-truth annotations and metadata.</li>
-                <li>Generated synthetic datasets used in team ablation studies, improving static wheel-detection performance from <strong>78.7 to 85.7 mAP@0.85 (+7.0 points)</strong>, with additional gains in end-to-end meter reading.</li>
-              </ul>
-              <a href="https://github.com/hqu35/water-meter-synthetic-data-pipeline" class="btn btn-outline-dark mt-4">View Project on GitHub</a>
+  <main>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+      <div class="container narrow">
+        <header class="section-head">
+          <span class="issue">Issue #01</span>
+          <h2 class="title">About</h2>
+        </header>
+        <div class="panel panel-about reveal">
+          <p>I’m especially interested in understanding not only how learning-based systems work in practice, but also the mathematical ideas behind them and how they can interact with visual computing.
+            At this stage, I’m still exploring where these interests may lead, and I’m excited to keep learning across machine learning, computer vision, graphics, and related areas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section section-halftone" aria-labelledby="experience-heading">
+      <div class="container narrow">
+        <header class="section-head">
+          <span class="issue">Issue #02</span>
+          <h2 id="experience-heading" class="title">Experience</h2>
+        </header>
+
+        <article class="panel panel-xp reveal">
+          <span class="sfx sfx-xp" aria-hidden="true">Thwip!</span>
+          <div class="xp-head">
+            <div class="xp-logo">
+              <img src="Aizip.avif" alt="Aizip logo" width="1109" height="590" loading="lazy">
             </div>
+            <div>
+              <h3 class="xp-company">Aizip</h3>
+              <p class="xp-meta">Internship &middot; <time datetime="2026-06">Jun</time>–<time datetime="2026-08">Aug 2026</time></p>
+            </div>
+          </div>
+          <ul class="xp-list">
+            <li>Built a hybrid synthetic-data framework for water-meter perception, combining procedural CG/PBR rendering with diffusion-based image augmentation to generate diverse training data.</li>
+            <li>Developed controllable 3D generation workflows for meter geometry, materials, lighting, camera pose, and digit configurations, with automatically generated ground-truth annotations and metadata.</li>
+            <li>Generated synthetic datasets used in team ablation studies, improving static wheel-detection performance from <strong class="hl">78.7 to 85.7 mAP@0.85 (+7.0 points)</strong>, with additional gains in end-to-end meter reading.</li>
+          </ul>
+          <a href="https://github.com/hqu35/water-meter-synthetic-data-pipeline" class="btn btn-ink">View Project on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Coursework Section -->
+    <section id="courses" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="issue">Issue #03</span>
+          <h2 class="title">Relevant Coursework</h2>
+        </header>
+
+        <!-- 2025 Coursework -->
+        <div class="year reveal">
+          <h3 class="year-label">2025</h3>
+          <div class="seasons">
+            <section class="season season-spring" aria-label="Spring 2025">
+              <h4 class="season-name">Spring</h4>
+              <ul class="course-list">
+                <li><a href="#math-234"><b>MATH 234</b> Multi-Variable Calculus</a></li>
+                <li><a href="#math-340"><b>MATH 340</b> Elementary Matrix and Linear Algebra</a></li>
+                <li><b>CS 200</b> Programming I</li>
+                <li><b>ESL 118</b> English as Second Language 118</li>
+                <li><b>GENE 133</b> Genetics in the News</li>
+              </ul>
+            </section>
+            <section class="season season-fall" aria-label="Fall 2025">
+              <h4 class="season-name">Fall</h4>
+              <ul class="course-list">
+                <li><a href="#math-521"><b>MATH 521</b> Analysis I</a></li>
+                <li><a href="#math-541"><b>MATH 541</b> Modern Algebra I</a></li>
+                <li><b>CS 400</b> Programming III</li>
+                <li><b>MATH 467</b> Number Theory</li>
+                <li><b>MUSIC 151</b> Music Theory</li>
+              </ul>
+            </section>
+            <section class="season season-summer" aria-label="Summer 2025">
+              <h4 class="season-name">Summer</h4>
+              <ul class="course-list">
+                <li><b>MATH 475</b> Combinatorics</li>
+                <li><b>CS 300</b> Programming II</li>
+                <li><b>MATH 421</b> Single Variable Calculus</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <!-- 2026 Coursework -->
+        <div class="year reveal">
+          <h3 class="year-label">2026</h3>
+          <div class="seasons">
+            <section class="season season-spring" aria-label="Spring 2026">
+              <h4 class="season-name">Spring</h4>
+              <ul class="course-list">
+                <li><b>CS 577</b> Algorithm</li>
+                <li><b>CS 559</b> Computer Graphics</li>
+                <li><b>ECE 252</b> Intro to Computer Engineering</li>
+                <li><a href="#math-561"><b>MATH 561</b> Differential Geometry</a></li>
+                <li><b>ART 100</b> Introduction to Art</li>
+              </ul>
+            </section>
+            <section class="season season-fall" aria-label="Fall 2026">
+              <h4 class="season-name">Fall</h4>
+              <ul class="course-list">
+                <li><b>CS 354</b> Machine Organization and Programming</li>
+                <li aria-describedby="self-study-note"><b>CSAPP (CMU CS15-213)</b> Intro to Computer Systems<sup class="dagger">†</sup></li>
+                <li><b>CS 539</b> Artificial Neural Network</li>
+                <li aria-describedby="self-study-note"><b>CS229 (Stanford)</b> Machine Learning<sup class="dagger">†</sup></li>
+                <li><b>LIS 202</b> Informational Divides and Differences in a Multicultural Society</li>
+                <li><b>BIOCHEM 104</b> Molecules to Life and the Nature of Science</li>
+              </ul>
+            </section>
+            <section class="season season-summer" aria-label="Summer 2026">
+              <h4 class="season-name">Summer</h4>
+              <ul class="course-list">
+                <li><b>CS 403</b> Internship Course in Comp Sci</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <div class="course-notes">
+          <p id="self-study-note" class="footnote"><sup class="dagger">†</sup> Self-studied coursework (in progress, check <a href="https://github.com/hqu35">GitHub</a> for details)</p>
+          <aside class="caption-box caption-box-lg reveal" aria-label="Independent learning experiment">
+            <p><strong>A small learning experiment:</strong> This year, I’m using CSAPP and CS229 as a personal experiment in independent learning in the AI era. I want to explore how far AI can support me gaining both a theoretical and practical understanding of knowledge, and helping me track progress and stay accountable for a concrete study plan.</p>
+          </aside>
+          <p class="legend"><span class="legend-swatch"></span> Linked courses have a write-up below.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Experiences -->
+    <section id="course-experiences" class="section section-halftone" aria-labelledby="course-experiences-heading">
+      <div class="container">
+        <header class="section-head">
+          <span class="issue">Issue #04</span>
+          <h2 id="course-experiences-heading" class="title">Course Experiences</h2>
+        </header>
+
+        <article id="math-234" class="story reveal">
+          <figure class="story-img">
+            <img src="Math234.jpg" alt="Handwritten triple-integral work from MATH 234" width="1640" height="1041" loading="lazy">
+            <span class="sfx" aria-hidden="true">Calc!</span>
+          </figure>
+          <div class="story-body panel">
+            <h3 class="story-title">MATH 234 <small>Multi-Variable Calculus</small></h3>
+            <p>
+              The course is the epilogue in the standard calculus sequence, which focuses on multivariable calculus.
+              We learned some basic differential geometry, partial derivatives, and finally double and triple integrals. Overall speaking, this course inherits the style in the calculus sequenece that only requires students to do basic calculation.
+            </p>
+          </div>
+        </article>
+
+        <article id="math-340" class="story reveal">
+          <figure class="story-img story-img-small">
+            <img src="Math340.jpg" alt="Image from MATH 340" width="212" height="177" loading="lazy">
+            <span class="sfx" aria-hidden="true">Matrix!</span>
+          </figure>
+          <div class="story-body panel">
+            <h3 class="story-title">MATH 340 <small>Elementary Matrix and Linear Algebra</small></h3>
+            <p>
+              This course focuses on basic matrix algebra, with most of the proofs omitted. Just like how math 234 works, the course only expects students to do calculation instead of diving deep into the proofs of theorems.
+              Though the disadvantage is pretty obvious: one might forget the knowledge pretty soon after the final since no proofs are provided to really get you understand what's really under the hood.
+            </p>
+          </div>
+        </article>
+
+        <article id="math-521" class="story reveal">
+          <figure class="story-img">
+            <img src="Math521.jpg" alt="Image from MATH 521" width="1079" height="1532" loading="lazy">
+            <span class="sfx" aria-hidden="true">Rudin!</span>
+          </figure>
+          <div class="story-body panel">
+            <h3 class="story-title">MATH 521 <small>Analysis I</small></h3>
+            <p>
+              It was such a horrible experience when I took this course, the lecturer just copeid and pasted whatever's in her course notes, without providing any motivation nor explanation. But luckily,
+              the exams were just asking us to reproduce the proofs of the main theorems in the textbook. The course
+              mostly covered chapter 1 to chapter 8 in Rudin's Principle of Mathemtical Analysis. We learned basic point set topology(which is not beginner friendly), continuous functions, differentiation
+              & Integration, Sequence and Series, Uniform Convergence, and some applications of these knowledge. I strongly recommend you preview chapter 2 in Rudin's book if you plan to take this course, as it'll become a pain in the ass......
+            </p>
+          </div>
+        </article>
+
+        <article id="math-541" class="story reveal">
+          <figure class="story-img">
+            <img src="Math541.jpg" alt="Image from MATH 541" width="1079" height="1378" loading="lazy">
+            <span class="sfx" aria-hidden="true">Groups!</span>
+          </figure>
+          <div class="story-body panel">
+            <h3 class="story-title">MATH 541 <small>Modern Algebra I</small></h3>
+            <p>
+              I took the course with professor Milkahil Ivanov, who's strict and rigorous. We covered primarily group theory, and a bit of Ring theory. The first half of the course was relatively manageable. Everything became harsh and bad after the second midterm(Roughly speaking,
+              quotient groups, orbits, direct products, etc).
+              Overall speaking, the exams except the first midterm were hard, I did bad on the second midterm, but managed to get the second highest score on the final and the first midterm.
+            </p>
+          </div>
+        </article>
+
+        <article id="math-561" class="story reveal">
+          <figure class="story-img">
+            <img src="Math561.jpg" alt="Image from MATH 561" width="1000" height="1089" loading="lazy">
+            <span class="sfx" aria-hidden="true">Curves!</span>
+          </figure>
+          <div class="story-body panel">
+            <h3 class="story-title">MATH 561 <small>Differential Geometry</small></h3>
+            <p>
+              I took the course with professor Tullia Dymarz, who's passionate all the time giving lectures.
+              We followed closely the book Elementary Differential Geoemetry by Pressley. At the end of the course, we had a bit taste of hyperbolic geometry, which is pretty fun.
+              Overall a pretty chilly class.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <div class="container narrow">
+        <header class="section-head">
+          <span class="issue">Issue #05</span>
+          <h2 class="title">Education</h2>
+        </header>
+
+        <div class="edu-grid">
+          <!-- UW–Madison -->
+          <article class="panel edu reveal">
+            <div class="edu-logo"><img src="uw-logo.png" alt="UW–Madison Logo" width="275" height="183" loading="lazy"></div>
+            <h3>University of Wisconsin–Madison</h3>
+            <dl class="edu-facts">
+              <div><dt>Major</dt><dd>Mathematics & Computer Science</dd></div>
+              <div><dt>Expected Graduation</dt><dd>December 2028</dd></div>
+              <div><dt>GPA</dt><dd>3.93/4.0</dd></div>
+            </dl>
+          </article>
+
+          <!-- Beijing National Day School -->
+          <article class="panel edu reveal">
+            <div class="edu-logo"><img src="bnds-logo.png" alt="Beijing National Day School Logo" width="250" height="194" loading="lazy"></div>
+            <h3>Beijing National Day School</h3>
+            <dl class="edu-facts">
+              <div><dt>Diploma</dt><dd>High School Diploma — IB</dd></div>
+              <div><dt>Graduated</dt><dd>2024</dd></div>
+            </dl>
           </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
- <section id="courses" class="py-5">
-  <div class="container">
-    <h2 class="text-center">
-      <span style="color: orange;">Relevant</span>
-      <span style="color: green;">CourseWork</span>
-    </h2>
+  </main>
 
-    <!-- 2025 Coursework -->
-    <div class="mx-auto my-4" style="max-width: 1100px;">
-      <h3 class="h4 mb-3">2025</h3>
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped text-start align-top mb-0" aria-label="2025 coursework" style="min-width: 720px; table-layout: fixed;">
-          <thead>
-            <tr>
-              <th scope="col" class="table-danger text-center">Spring</th>
-              <th scope="col" class="table-secondary text-center">Fall</th>
-              <th scope="col" class="table-success text-center">Summer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="#math-234">MATH 234: Multi-Variable Calculus</a></td>
-              <td><a href="#math-521">MATH 521: Analysis I</a></td>
-              <td><a href="#">MATH 475: Combinatorics</a></td>
-            </tr>
-            <tr>
-              <td><a href="#math-340">MATH 340: Elementary Matrix and Linear Algebra</a></td>
-              <td><a href="#math-541">MATH 541: Modern Algebra I</a></td>
-              <td><a href="#">CS 300: Programming II</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">CS 200: Programming I</a></td>
-              <td><a href="#">CS 400: Programming III</a></td>
-              <td><a href="#">MATH 421: Single Variable Calculus</a></td>
-            </tr>
-            <tr>
-              <td>ESL 118: English as Second Language 118</td>
-              <td><a href="#">Math 467: Number Theory</a></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>GENE 133: Genetics in the News</td>
-              <td>Music 151: Music Theory</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- 2026 Coursework -->
-    <div class="mx-auto my-4" style="max-width: 1100px;">
-      <h3 class="h4 mb-3">2026</h3>
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped text-start align-top mb-0" aria-label="2026 coursework" style="min-width: 720px; table-layout: fixed;">
-          <thead>
-            <tr>
-              <th scope="col" class="table-danger text-center">Spring</th>
-              <th scope="col" class="table-secondary text-center">Fall</th>
-              <th scope="col" class="table-success text-center">Summer</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="#">CS 577: Algorithm</a></td>
-              <td><a href="#">CS 354: Machine Organization and Programming</a></td>
-              <td><a href="#">CS 403: Internship Course in Comp Sci</a></td>
-            </tr>
-            <tr>
-              <td><a href="#">CS 559: Computer Graphics</a></td>
-              <td><a href="#" aria-describedby="self-study-note">CSAPP (CMU CS15-213): Intro to Computer Systems</a><sup>†</sup></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href="#">ECE 252: Intro to Computer Engineering</a></td>
-              <td><a href="#">CS 539: Artificial Neural Network </a></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href="#math-561">Math 561: Differential Geometry</a></td>
-              <td><a href="#" aria-describedby="self-study-note">CS229 (Stanford): Machine Learning</a><sup>†</sup></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Art 100: Introduction to Art</td>
-              <td>LIS 202: Informational Divides and Differences in a Multicultural Society</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>BIOCHEM 104: Molecules to Life and the Nature of Science</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <p id="self-study-note" class="small text-muted mx-auto mb-4" style="max-width: 1100px;"><sup>†</sup> Self-studied coursework (in progress, check <a href="https://github.com/hqu35">GitHub</a> for details)</p>
-    <aside class="small text-muted border-start border-3 ps-3 mx-auto mb-4" style="max-width: 1100px;" aria-label="Independent learning experiment">
-      <p class="mb-0"><strong>A small learning experiment:</strong> This year, I’m using CSAPP and CS229 as a personal experiment in independent learning in the AI era. I want to explore how far AI can support me gaining both a theoretical and practical understanding of knowledge, and helping me track progress and stay accountable for a concrete study plan.</p>
-    </aside>
-  </div>
-
-</section>
-
-<section id="course-experiences" class="pt-5 bg-white" aria-labelledby="course-experiences-heading">
-  <div class="container">
-    <h2 id="course-experiences-heading" class="text-center mb-4">Course Experiences</h2>
-  </div>
-
-<section id="math-234" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      
-      <!-- Course Image -->
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="Math234.jpg" alt="Course Image"
-             style="max-width: 100%; border-radius: 8px;">
-      </div>
-      <!-- Course Text -->
-      <div class="col-md-7">
-        <h3> MATH:234 </h3>
-        <p>
-          <!-- Write your experience here -->
-          The course is the epilogue in the standard calculus sequence, which focuses on multivariable calculus.
-          We learned some basic differential geometry, partial derivatives, and finally double and triple integrals. Overall speaking, this course inherits the style in the calculus sequenece that only requires students to do basic calculation.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-   
-   <section id="math-340" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      
-      <!-- Course Image -->
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="Math340.jpg" alt="Course Image"
-             style="max-width: 100%; border-radius: 8px;">
-      </div>
-      <!-- Course Text -->
-      <div class="col-md-7">
-        <h3> MATH:340 </h3>
-        <p>
-          <!-- Write your experience here -->
-          This course focuses on basic matrix algebra, with most of the proofs omitted. Just like how math 234 works, the course only expects students to do calculation instead of diving deep into the proofs of theorems.
-          Though the disadvantage is pretty obvious: one might forget the knowledge pretty soon after the final since no proofs are provided to really get you understand what's really under the hood. 
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="math-521" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      
-      <!-- Course Image -->
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="Math521.jpg" alt="Course Image"
-             style="max-width: 100%; border-radius: 8px;">
-      </div>
-      <!-- Course Text -->
-      <div class="col-md-7">
-        <h3> Math 521 </h3>
-        <p>
-          <!-- Write your experience here -->
-          It was such a horrible experience when I took this course, the lecturer just copeid and pasted whatever's in her course notes, without providing any motivation nor explanation. But luckily, 
-          the exams were just asking us to reproduce the proofs of the main theorems in the textbook. The course
-          mostly covered chapter 1 to chapter 8 in Rudin's Principle of Mathemtical Analysis. We learned basic point set topology(which is not beginner friendly), continuous functions, differentiation
-          & Integration, Sequence and Series, Uniform Convergence, and some applications of these knowledge. I strongly recommend you preview chapter 2 in Rudin's book if you plan to take this course, as it'll become a pain in the ass......
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-   <section id="math-541" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      
-      <!-- Course Image -->
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="Math541.jpg" alt="Course Image"
-             style="max-width: 100%; border-radius: 8px;">
-      </div>
-      <!-- Course Text -->
-      <div class="col-md-7">
-        <h3> Math 541 </h3>
-        <p>
-          <!-- Write your experience here -->
-          I took the course with professor Milkahil Ivanov, who's strict and rigorous. We covered primarily group theory, and a bit of Ring theory. The first half of the course was relatively manageable. Everything became harsh and bad after the second midterm(Roughly speaking,
-          quotient groups, orbits, direct products, etc).
-          Overall speaking, the exams except the first midterm were hard, I did bad on the second midterm, but managed to get the second highest score on the final and the first midterm.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
- <section id="math-561" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      
-      <!-- Course Image -->
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="Math561.jpg" alt="Course Image"
-             style="max-width: 100%; border-radius: 8px;">
-      </div>
-      <!-- Course Text -->
-      <div class="col-md-7">
-        <h3> Math 561 </h3>
-        <p>
-          <!-- Write your experience here -->
-          I took the course with professor Tullia Dymarz, who's passionate all the time giving lectures. 
-          We followed closely the book Elementary Differential Geoemetry by Pressley. At the end of the course, we had a bit taste of hyperbolic geometry, which is pretty fun.
-          Overall a pretty chilly class.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-   
-</section>
-<section id="education" class="py-5 bg-white">
-  <div class="container">
-    <h2 class="text-center mb-5"> Education</h2>
-
-    <div class="row justify-content-center align-items-center">
-
-      <!-- UW–Madison -->
-      <div class="col-md-5 text-center mb-4">
-        <img src="uw-logo.png" alt="UW–Madison Logo" style="max-width: 120px; height: auto;" class="mb-3">
-        <h4>University of Wisconsin–Madison</h4>
-        <p>Major: Mathematics & Computer Science</p>
-        <p>Expected Graduation: December,2028</p>
-        <p>GPA: 3.93/4.0</p>
-      </div>
-
-      <!-- Beijing National Day School -->
-      <div class="col-md-5 text-center mb-4">
-        <img src="bnds-logo.png" alt="Beijing National Day School Logo" style="max-width: 100px; height: auto;" class="mb-3">
-        <h4>Beijing National Day School</h4>
-        <p>High School Diploma —— IB</p>
-        <p>Graduated: 2024</p>
-      </div>
-
-    </div>
-  </div>
-</section>  
-  <footer class="text-muted mt-5 text-center">
-    <p>&copy; 2025 Ryan | Powered by Bootstrap 5</p>
+  <footer class="footer">
+    <p class="footer-sfx" aria-hidden="true">To be continued&hellip;</p>
+    <p>&copy; 2026 Ryan Qu</p>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
