@@ -1,6 +1,7 @@
 (function () {
   var root = document.documentElement;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduceMotion = motionPreference.matches;
 
   // --- Profile picture: glitch-swap between the two variants -------------
   var photoBtn = document.getElementById('photoToggle');
@@ -12,7 +13,7 @@
 
   photoBtn.addEventListener('click', function () {
     var next = img.src.indexOf(sources[0]) !== -1 ? sources[1] : sources[0];
-    if (reduceMotion) { img.src = next; return; }
+    if (motionPreference.matches) { img.src = next; return; }
     photoBtn.classList.remove('glitching');
     void photoBtn.offsetWidth; // restart the animation
     photoBtn.classList.add('glitching');
@@ -26,7 +27,8 @@
     var next = root.dataset.earth === '65' ? '1610' : '65';
     root.dataset.earth = next;
     try { localStorage.setItem('earth', next); } catch (e) {}
-    if (!reduceMotion) {
+    window.dispatchEvent(new CustomEvent('dimensionchange'));
+    if (!motionPreference.matches) {
       var flash = document.createElement('div');
       flash.className = 'dimension-flash';
       document.body.appendChild(flash);

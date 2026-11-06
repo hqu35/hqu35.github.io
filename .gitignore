@@ -1,0 +1,4 @@
+# Keep the experimental V2 portal local; publish the minimal V1 portfolio.
+/portal-v2.html
+/portal-v2.css
+/portal-v2.js

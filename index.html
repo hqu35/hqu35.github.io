@@ -58,13 +58,25 @@
 
       <!-- Profile Image -->
       <div class="hero-photo">
-        <button type="button" class="photo-panel" id="photoToggle" aria-label="Switch profile picture">
-          <img id="profilePic" src="ryan-formal.jpg" alt="Ryan's Profile Picture" width="800" height="1065">
-        </button>
-        <p class="bubble" aria-hidden="true">Tap me to switch variants!</p>
-        <span class="dimension-tag" aria-hidden="true">
-          <span data-when="1610">Earth-1610</span><span data-when="65">Earth-65</span>
-        </span>
+        <div class="portal-stage" id="portalStage">
+          <div class="portal-fallback" aria-hidden="true"></div>
+          <canvas class="portal-canvas" id="portalCanvas" aria-hidden="true"></canvas>
+          <button type="button" class="photo-panel" id="photoToggle" aria-label="Switch profile picture">
+            <img id="profilePic" src="ryan-formal.jpg" alt="Ryan's Profile Picture" width="800" height="1065">
+          </button>
+          <p class="bubble" aria-hidden="true">Tap me to switch variants!</p>
+          <span class="dimension-tag" aria-hidden="true">
+            <span data-when="1610">Earth-1610</span><span data-when="65">Earth-65</span>
+          </span>
+        </div>
+        <div class="portal-controls" id="portalControls" hidden>
+          <button type="button" class="portal-jump" id="portalJump">
+            Jump dimensions <span aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="portal-pause" id="portalPause" aria-label="Pause portal animation" aria-pressed="false">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path class="portal-pause-icon" d="M5 3v10M11 3v10"/><path class="portal-play-icon" d="m5 3 8 5-8 5z"/></svg>
+          </button>
+        </div>
       </div>
 
       <!-- Text Section -->
@@ -347,5 +359,6 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="portal.js"></script>
 </body>
 </html>
